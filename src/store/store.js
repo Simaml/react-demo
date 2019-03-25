@@ -1,13 +1,11 @@
-import { createStore, combineReducers } from 'redux';
-import { persistStore, persistReducer } from 'redux-persist';
+import { createStore } from 'redux';
 
 import rootReducer from '../reducers/reducer';
-import storageSession from 'redux-persist/lib/storage/session';
 
-const persistConfig = {
-    key: 'ccpStorage',
-    storage: storageSession
-};
-const newReducer = persistReducer(persistConfig, rootReducer);
-export const store = createStore(newReducer);
-export const newStore = persistStore(store);
+const store = createStore(rootReducer);
+let unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+);
+
+unsubscribe();
+export { store };

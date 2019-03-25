@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
-import { store, newStore } from './store/store';
+import { store } from './store/store';
 import { changeName } from './actions/action';
+import 'antd/dist/antd.css';
 
 class App extends Component {
   checkName = () => {
     changeName();
-    console.log(store.getState(), newStore.getState())
+    console.log(store.getState())
   }
   render() {
     return (

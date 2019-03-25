@@ -4,7 +4,7 @@ export function changeName() {
     return dispatch => {
         dispatch({
             type: CHANGENAME,
-            datas: 'world'
+            datas: { name: 'world' }
         })
     }
 }
